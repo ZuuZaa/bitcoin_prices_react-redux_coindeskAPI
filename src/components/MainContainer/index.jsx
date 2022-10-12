@@ -1,5 +1,5 @@
 import { PricesChart } from "components/PricesChart";
-import { Header } from "components/Header";
+// import { Header } from "components/Header";
 import { useSelector } from "react-redux";
 import { BTC_SELECTORS } from "store/btc";
 import "./style.scss";
@@ -9,7 +9,7 @@ export const MainContainer = () => {
   return (
     <div className="container">
       <div className="chartContainer">
-        {btcError ? <h3 className="error-text">{btcError}</h3> : <Header />}
+        {/* {btcError ? <h3 className="error-text">{btcError}</h3> : <Header />} */}
         <PricesChart />
       </div>
     </div>
