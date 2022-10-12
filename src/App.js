@@ -1,12 +1,9 @@
-import { store } from 'store';
+import { MainContainer } from "components/MainContainer";
 
 function App() {
-
-
-  console.log(store)
   return (
     <div className="App">
-app
+      <MainContainer />
     </div>
   );
 }
