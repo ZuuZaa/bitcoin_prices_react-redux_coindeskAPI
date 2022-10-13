@@ -52,6 +52,6 @@ const fetchData = async (dispatch, getstate) => {
 
 };
 
-store.dispatch(fetchData);
+//store.dispatch(fetchData);
 
 export { store };

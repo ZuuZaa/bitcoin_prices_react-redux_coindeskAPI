@@ -1,4 +1,4 @@
-import { PricesChart } from "components/PricesChart";
+// import { PricesChart } from "components/PricesChart";
 // import { Header } from "components/Header";
 // import { useSelector } from "react-redux";
 // import { BTC_SELECTORS } from "store/btc";
