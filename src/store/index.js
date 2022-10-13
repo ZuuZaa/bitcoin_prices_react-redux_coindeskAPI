@@ -15,16 +15,14 @@ const store = configureStore({
 
 
 
-const splitData = (data) => {
+const splitData = ((data) => {
   const splitedData = { index: [], prices: [], difference: "" };
-  data.map((item) => {
-    splitedData.index.push(getTimeFromDate(item[0]));
-    splitedData.prices.push(item[1]);
-  });
+  data.map(item => splitedData.index.push(getTimeFromDate(item[0])))
+  data.map(item => splitedData.prices.push(item[1]))
   const difference = splitedData.prices[splitedData.prices.length - 1] > splitedData.prices[splitedData.prices.length - 2];
   splitedData.difference = difference;
   return splitedData;
-}
+})
 
 const fetchData = async (dispatch, getstate) => {
 
