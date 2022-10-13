@@ -9,11 +9,11 @@ import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { Loading } from "components/Loading";
 
 export const Header = () => {
-  const [rate, setRate] = useState("");
+
+  const [unit, setUnit] = useState("EUR");
   const btc = useSelector(BTC_SELECTORS.getBTC);
   const prices = useSelector(PRICES_SELECTORS.getPices);
   const loading = useSelector(BTC_SELECTORS.getBTCLoading);
-  console.log("header loading", loading);
 
   return (
     <div className="header">
@@ -23,10 +23,10 @@ export const Header = () => {
         <>
           <h1>
             Bitcoin to
-            <CurrencyUnit setRate={setRate} />
+            <CurrencyUnit setUnit={setUnit} />
           </h1>
           <h3>
-            {rate}
+            {btc.rates[unit].rate}
             {prices.difference ? (
               <FontAwesomeIcon icon={faArrowUp} />
             ) : (
