@@ -10,7 +10,7 @@ export const MainContainer = () => {
     <div className="container">
       <div className="chartContainer">
         {/* {btcError ? <h3 className="error-text">{btcError}</h3> : <Header />} */}
-        <PricesChart />
+        {/* <PricesChart /> */}
       </div>
     </div>
   );
