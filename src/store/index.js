@@ -13,6 +13,19 @@ const store = configureStore({
   },
 });
 
+
+
+const splitData = (data) => {
+  const splitedData = { index: [], prices: [], difference: "" };
+  data.map((item) => {
+    splitedData.index.push(getTimeFromDate(item[0]));
+    splitedData.prices.push(item[1]);
+  });
+  const difference = splitedData.prices[splitedData.prices.length - 1] > splitedData.prices[splitedData.prices.length - 2];
+  splitedData.difference = difference;
+  return splitedData;
+}
+
 const fetchData = async (dispatch, getstate) => {
 
   dispatch(setBTCLoading());
@@ -37,14 +50,7 @@ const fetchData = async (dispatch, getstate) => {
       "https://api.coingecko.com/api/v3/coins/ethereum/market_chart?vs_currency=usd&days=1&interval=1m"
     );
     const resData = response.data;
-    const data = { index: [], prices: [], difference: "" };
-    resData.prices.map((item) => {
-      data.index.push(getTimeFromDate(item[0]));
-      data.prices.push(item[1]);
-    });
-    const difference =
-      data.prices[data.prices.length - 1] > data.prices[data.prices.length - 1];
-    data.difference = difference;
+    const data = splitData(resData.prices)
     dispatch(setPrices(data));
   } catch (error) {
     dispatch(setPricesError(error.message));
@@ -52,6 +58,6 @@ const fetchData = async (dispatch, getstate) => {
 
 };
 
-//store.dispatch(fetchData);
+store.dispatch(fetchData);
 
 export { store };
